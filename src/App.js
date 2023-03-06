@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import Login from "./components/Login";
+import { useState } from "react";
 
 function App() {
+  const [fileContent, setFileContent] = useState("");
+
+  const getFileContent = async () => {
+    try {
+      const response = await window.gapi.client.drive.files.get({
+        fileId: "<your",
+        alt: "media",
+      });
+
+      setFileContent(response.body);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {fileContent && <p>{fileContent}</p>}
+      <Login onSuccess={getFileContent} />
     </div>
   );
 }

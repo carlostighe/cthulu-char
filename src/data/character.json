@@ -1,0 +1,39 @@
+{
+  "name": "Beau Calhoun",
+  "occupation": "Soldier - Tunnel Rat",
+  "age": "27",
+  "sex": "male",
+  "archetype": "Two Fisted",
+  "residence": "Nowhere",
+  "birthplace": "Murica",
+  "hp": 24,
+  "currentHP": 15,
+  "sanity": 82,
+  "currentSanity": 82,
+  "luck": 58,
+  "mp": 14,
+  "currentMP": 13,
+  "characteristics": {
+    "str": 68,
+    "dex": 80,
+    "int": 55,
+    "con": 75,
+    "app": 49,
+    "pow": 70,
+    "siz": 47,
+    "edu": 56,
+    "move rate": 9
+  },
+  "skills": [
+    { "name": "accounting", "value": 5, "ticked": false },
+    { "name": "appraise", "value": 5, "ticked": false },
+    { "name": "archeology", "value": 5, "ticked": false },
+    { "name": "art/craft", "value": 5, "ticked": false },
+    { "name": "animal handling", "value": 5, "ticked": false },
+    { "name": "charm", "value": 5, "ticked": false },
+    { "name": "climb", "value": 5, "ticked": false },
+    { "name": "computer use", "value": 5, "ticked": false },
+    { "name": "credit rating", "value": 5, "ticked": false },
+    { "name": "cthulu mythos", "value": 5, "ticked": false }
+  ]
+}
