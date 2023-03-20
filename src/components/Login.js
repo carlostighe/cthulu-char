@@ -54,7 +54,7 @@ const Login = () => {
     };
     gapi.load("client:auth2", initClient);
     initToken();
-  }, [gapiInited]);
+  }, [gapiInited, gapi]);
 
   const updateSigninStatus = (isSignedIn) => {
     if (isSignedIn) {
@@ -67,6 +67,7 @@ const Login = () => {
 
   const handleAuthClick = () => {
     tokenClient.callback = async (resp) => {
+      console.log("resp ", resp);
       if (resp.error !== undefined) {
         throw resp;
       }
