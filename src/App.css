@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+/* .login {
+  display: flex;
+  justify-content: center;
+} */
+
+.login img {
+  padding: 30% 0;
+}
+
+.login img:active {
+  color: crim;
+}
