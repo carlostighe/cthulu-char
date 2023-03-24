@@ -1,7 +1,9 @@
 import "./App.css";
+import "./fonts/SpecialElite-Regular.ttf";
 
 import React, { useEffect, useState } from "react";
 
+import CharacterSheet from "./components/characters/CharacterSheet";
 import login from "./login2.svg";
 
 const gapi = window.gapi;
@@ -14,19 +16,15 @@ const DISCOVERY_DOCS = [
 const SCOPES = "https://www.googleapis.com/auth/drive";
 function App() {
   const [tokenClient, setTokenClient] = useState(null);
-  const [gapiInited, setgapiInitited] = useState(false);
-  const [gisInited, setgisInitited] = useState(false);
   const [accessToken, setAccessToken] = useState(null);
-
+  const [fileId, setFIleId] = useState("");
+  const [characterData, setCharacterData] = useState("");
+  const [error, setError] = useState(null);
   const gapInit = async () => {
-    await gapi.client
-      .init({
-        apiKey: API_KEY,
-        discoveryDocs: DISCOVERY_DOCS,
-      })
-      .then(function () {
-        setgapiInitited(true);
-      });
+    await gapi.client.init({
+      apiKey: API_KEY,
+      discoveryDocs: DISCOVERY_DOCS,
+    });
   };
   useEffect(() => {
     gapi.load("client", gapInit);
@@ -37,25 +35,33 @@ function App() {
         callback: "", // defined at request time
       })
     );
-    setgisInitited(true);
   }, []);
 
   const listFiles = async () => {
-    let response;
     try {
-      response = await gapi.client.drive.files.list({
-        q: "name='character.json'",
-        fields: "files(id, name)",
+      const file = await gapi.client.drive.files
+        .list({
+          q: "name='character.json'",
+          fields: "files(id, name)",
+        })
+        .then((response) => {
+          return response.result.files[0].id;
+        });
+      await setFIleId(file);
+      const fileData = await gapi.client.drive.files.get({
+        fileId: file,
+        alt: "media",
+        "content-type": "application/json",
       });
+      const charData = JSON.parse(fileData.body);
+      console.log("charData ", charData);
+      await setCharacterData(charData);
+      console.log("characterData ", characterData);
     } catch (err) {
-      console.log("err ", err.message);
+      setError(err.body.message);
+      console.log("err in list files ", err.body);
       return;
     }
-    const characterData = await gapi.client.drive.files.get({
-      fileId: response.result.files[0].id,
-      alt: "media",
-    });
-    console.log("characterData ", characterData.body);
   };
 
   const authorise = () => {
@@ -90,9 +96,21 @@ function App() {
           ></img>
         </div>
       ) : (
-        <button id="signout_button" onClick={revokeToken}>
-          Sign Out
-        </button>
+        <div>
+          {!error ? (
+            <CharacterSheet
+              revokeToken={() => revokeToken()}
+              characterData={characterData}
+            />
+          ) : (
+            <div>
+              <h2>{error}</h2>
+              <button id="signout_button" onClick={revokeToken}>
+                Sign Out
+              </button>
+            </div>
+          )}
+        </div>
       )}
     </div>
   );

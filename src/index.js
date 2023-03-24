@@ -1,5 +1,5 @@
 import "./index.css";
-import "react-skeleton-css/styles/skeleton.2.0.4.css";
+import "./skeleton.css";
 
 import App from "./App";
 import React from "react";
