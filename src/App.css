@@ -1,38 +1,31 @@
+@font-face {
+  font-family: 'Medium';
+  src: local('SpecialElite'), url(./fonts/SpecialElite-Regular.ttf) format('truetype');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.login img {
+  padding: 30% 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login img:active {
+  color: crim;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.character-sheet {
+  color: black;
+  font-family: "Medium";
 }
 
-.App-link {
-  color: #61dafb;
+.character-sheet .header {
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.character-sheet img {
+  margin: auto;
+  display: block;
 }

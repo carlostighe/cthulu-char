@@ -1,17 +1,23 @@
 import { useState } from "react";
 
-const FILEID = "character.json";
+const FILENAME = "character.json";
 
 const GoogleDriveService = (gapi) => {
-  const [fileContent, setFileContent] = useState("");
+  const [characterData, setcharacterData] = useState("");
+  const [fileId, setFileId] = useState("");
 
   const getFile = async () => {
     try {
-      const response = await gapi.client.drive.files.get({
-        fileId: FILEID,
+      const files = await gapi.client.drive.files.list({
+        q: "name=" + FILENAME,
+        fields: "fields(id, name)",
+      });
+      setFileId(files.results.files[0].id);
+      const characterData = await gapi.client.drive.files.get({
+        fileId: fileId,
         alt: "media",
       });
-      setFileContent(response.body);
+      setcharacterData(JSON.parse(characterData.body));
     } catch (error) {
       console.error(error);
     }
@@ -20,7 +26,7 @@ const GoogleDriveService = (gapi) => {
   const updateFile = async (data) => {
     try {
       const response = await gapi.client.request({
-        path: `/upload/drive/v3/files/${FILEID}?uploadType=media`,
+        path: `/upload/drive/v3/files/${fileId}?uploadType=media`,
         method: "PUT",
         body: JSON.stringify(data),
       });
