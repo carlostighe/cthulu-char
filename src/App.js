@@ -54,12 +54,9 @@ function App() {
         "content-type": "application/json",
       });
       const charData = JSON.parse(fileData.body);
-      console.log("charData ", charData);
       await setCharacterData(charData);
-      console.log("characterData ", characterData);
     } catch (err) {
       setError(err.body.message);
-      console.log("err in list files ", err.body);
       return;
     }
   };

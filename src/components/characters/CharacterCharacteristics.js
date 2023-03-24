@@ -2,10 +2,11 @@ import Characteristic from "./Characteristic";
 
 const CharacterCharacteristics = ({ characteristics }) => {
   return (
-    <div className="row">
+    <div className="characteristics">
       {characteristics ? (
         Object.keys(characteristics).map((char, index) => (
           <Characteristic
+            key={index}
             char={char}
             index={index}
             val={characteristics[char]}

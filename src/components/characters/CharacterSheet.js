@@ -10,7 +10,7 @@ const CharacterSheet = ({ revokeToken, characterData }) => {
       style={{
         backgroundImage: `url(${background})`,
         backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
+        backgroundSize: "cover  ",
         aspectRatio: 3 / 2,
       }}
     >
@@ -18,10 +18,11 @@ const CharacterSheet = ({ revokeToken, characterData }) => {
         revokeToken={() => revokeToken}
         characterData={characterData}
       />
+      <CharacterImage characterData={characterData} />
+
       <CharacterCharacteristics
         characteristics={characterData.characteristics}
       />
-      <CharacterImage characterData={{ characterData }} />
     </div>
   );
 };
