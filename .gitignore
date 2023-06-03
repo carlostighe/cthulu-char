@@ -14,11 +14,6 @@
 .env.test.local
 .env.production.local
 
-<<<<<<< HEAD
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-=======
 # Logs
 logs
 *.log
@@ -120,4 +115,3 @@ dist
 
 # TernJS port file
 .tern-port
->>>>>>> d953043b0cf0454a55d8ffe3be2b6e064e9d9897
