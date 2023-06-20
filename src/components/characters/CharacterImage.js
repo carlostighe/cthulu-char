@@ -14,12 +14,12 @@ const CharacterImage = ({ characterData }) => {
     >
       <div className="stats-section">
         <div className="stats-item">
+          <Stats name="Luck" statMax={99} statCurrent={characterData.luck} />
           <Stats
-            name="Hit Points"
+            name="HP's"
             statMax={characterData.hp}
             statCurrent={characterData.currentHP}
           />
-          <Stats name="Luck" statMax={99} statCurrent={characterData.luck} />
         </div>
 
         <div className="stats-item">
@@ -29,7 +29,7 @@ const CharacterImage = ({ characterData }) => {
             statCurrent={characterData.currentSanity}
           />
           <Stats
-            name="Magic Points"
+            name="MP's"
             statMax={characterData.mp}
             statCurrent={characterData.currentMP}
           />

@@ -1,9 +1,11 @@
 const Stats = ({ name, statMax, statCurrent }) => {
   return (
-    <div className="stats">
+    <div className="stats border pad">
       <div className="stats-item">{name}</div>
-      <div className="stats-item">
-        {statCurrent} / {statMax}
+      <div className="stats-row">
+        <div className="stats-val">
+          {statCurrent} / {statMax}
+        </div>
       </div>
     </div>
   );
