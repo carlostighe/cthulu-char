@@ -6,7 +6,7 @@ import background from "../../images/cthulu_background_charactersheet.png";
 const CharacterSheet = ({ revokeToken, characterData }) => {
   return (
     <div
-      className="uk-grid-small character-sheet"
+      className="uk-container character-sheet"
       style={{
         backgroundImage: `url(${background})`,
         backgroundRepeat: "no-repeat",
