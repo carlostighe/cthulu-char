@@ -1,3 +1,4 @@
+import "../node_modules/uikit/dist/css/uikit.min.css";
 import "./App.css";
 import "./fonts/SpecialElite-Regular.ttf";
 
