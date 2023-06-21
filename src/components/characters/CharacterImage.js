@@ -4,15 +4,14 @@ const CharacterImage = ({ characterData }) => {
   console.log("{characterData} ", { characterData });
   return (
     <div
-      class="uk-height-small uk-flex uk-flex-center uk-flex-middle uk-background-contain"
-      uk-img
+      className="uk-height-large uk-flex uk-flex-center uk-flex-middle uk-background-contain uk-margin-bottom-large"
+      uk-img={true}
       style={{
-        height: "220px",
         backgroundImage: `url(${image})`,
       }}
     >
-      <div class="uk-grid uk-width-1-1 uk-height-1-1">
-        <div class="uk-flex uk-flex-column uk-width-1-3 uk-flex-between	uk-margin-large-small">
+      <div className="uk-grid uk-width-1-1 uk-height-1-1 uk-margin-bottom-large">
+        <div className="uk-flex uk-flex-column uk-width-1-3 uk-flex-between">
           <Stats name="Luck" statMax={99} statCurrent={characterData.luck} />
           <Stats
             name="HP's"
@@ -20,8 +19,8 @@ const CharacterImage = ({ characterData }) => {
             statCurrent={characterData.currentHP}
           />
         </div>
-        <div class="uk-width-1-3"></div>
-        <div class="uk-flex uk-flex-column uk-width-1-3 uk-flex-between	uk-margin-large-small">
+        <div className="uk-width-1-3"></div>
+        <div className="uk-flex uk-flex-column uk-width-1-3 uk-flex-between	uk-margin-large-small">
           <Stats
             name="Sanity"
             statMax={characterData.sanity}

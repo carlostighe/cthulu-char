@@ -9,6 +9,10 @@
   text-align: center;
 }
 
+.app-row {
+      height: calc(100vh / 3);
+    }
+
 .login img {
   padding: 30% 0;
 }
@@ -24,11 +28,6 @@
 
 .character-sheet .header {
   text-align: center;
-}
-
-.character-sheet img {
-  margin: auto;
-  /* display: block; */
 }
 
 .border {

@@ -84,7 +84,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="uk-height-1-1">
       {!accessToken ? (
         <div className="row login">
           <img
@@ -101,7 +101,7 @@ function App() {
               characterData={characterData}
             />
           ) : (
-            <div>
+            <div class="uk-grid uk-width-1-1 uk-height-1-1">
               <h2>{error}</h2>
               <button id="signout_button" onClick={revokeToken}>
                 Sign Out
