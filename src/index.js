@@ -1,15 +1,35 @@
 import "./index.css";
+import "../node_modules/uikit/dist/css/uikit.min.css";
+import "./App.css";
+import "./fonts/SpecialElite-Regular.ttf";
 
-import App from "./App";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+import ErrorPage from "./error-page";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import Root from "./routes/root";
+import Stats from "./components/characters/Stats";
 import reportWebVitals from "./reportWebVitals";
-// import "./skeleton.css";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "stats",
+        element: <Stats />,
+      },
+    ],
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

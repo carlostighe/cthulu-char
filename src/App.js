@@ -1,7 +1,3 @@
-import "../node_modules/uikit/dist/css/uikit.min.css";
-import "./App.css";
-import "./fonts/SpecialElite-Regular.ttf";
-
 import React, { useEffect, useState } from "react";
 
 import CharacterSheet from "./components/characters/CharacterSheet";
@@ -84,9 +80,9 @@ function App() {
   };
 
   return (
-    <div className="uk-height-1-1">
+    <div className="uk-height-viewport">
       {!accessToken ? (
-        <div className="row login">
+        <div className="uk-height-match uk-position-center">
           <img
             src={login}
             alt="cthulu like demon glyph"
@@ -94,14 +90,16 @@ function App() {
           ></img>
         </div>
       ) : (
-        <div>
+        <div className="uk-height-viewport">
           {!error ? (
-            <CharacterSheet
-              revokeToken={() => revokeToken()}
-              characterData={characterData}
-            />
+            <div className="uk-width-1-1 uk-height-viewport">
+              <CharacterSheet
+                revokeToken={() => revokeToken()}
+                characterData={characterData}
+              />
+            </div>
           ) : (
-            <div class="uk-grid uk-width-1-1 uk-height-1-1">
+            <div className="uk-grid uk-width-1-1 uk-height-1-1">
               <h2>{error}</h2>
               <button id="signout_button" onClick={revokeToken}>
                 Sign Out

@@ -2,7 +2,8 @@ import Characteristic from "./Characteristic";
 
 const CharacterCharacteristics = ({ characteristics }) => {
   return (
-    <div className="characteristics">
+    // <div className="uk-flex uk-flex-center uk-text-center" uk-grid>
+    <div className="uk-flex uk-flex-middle uk-flex-wrap">
       {characteristics ? (
         Object.keys(characteristics).map((char, index) => (
           <Characteristic
