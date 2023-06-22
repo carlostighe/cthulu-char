@@ -1,5 +1,4 @@
 import CharacterCharacteristics from "./CharacterCharacteristics";
-import { Outlet } from "react-router-dom";
 import Stats from "./Stats";
 import background from "../../images/cthulu_background_charactersheet.png";
 import image from "../../images/cthulu-image_200.png";
@@ -15,7 +14,6 @@ const CharacterCard = ({ characterData }) => {
         backgroundPosition: "center",
       }}
     >
-      <Outlet />
       <div className="uk-card-header">
         <div className="uk-grid-small uk-flex-middle uk-grid">
           <div className="uk-width-expand">

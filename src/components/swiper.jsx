@@ -1,7 +1,4 @@
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/scrollbar";
-import "./styles.css";
 
 import React, { useRef, useState } from "react";
 // Import Swiper React components
