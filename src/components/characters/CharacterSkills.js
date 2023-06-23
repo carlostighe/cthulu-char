@@ -12,6 +12,18 @@ const CharacterSkills = ({ characterData }) => {
         backgroundPosition: "center",
       }}
     >
+      <div className="uk-card-header">
+        <div className="uk-grid-small uk-flex-middle uk-grid">
+          <div className="uk-width-expand">
+            <h3 className="uk-card-title uk-margin-remove-bottom uk-text-center">
+              COMBAT
+            </h3>
+            <p className="uk-text-meta uk-margin-remove-top uk-text-center">
+              {characterData.occupation} - {characterData.archetype}
+            </p>
+          </div>
+        </div>
+      </div>
       <div className="uk-card-body little-pad">
         <div className="uk-flex uk-flex-middle uk-flex-wrap">
           {characterData.skills ? (

@@ -26,7 +26,6 @@
   font-family: "Medium";
 }
 
-
 .border {
   text-align: center;
   border: 1px solid black;
@@ -34,6 +33,18 @@
   justify-content: center;
 }
 
+.uk-text-tiny {
+  font-size: .75rem;
+  line-height: 1.2;
+}
+
+.characteristic-pad {
+  padding: 0 5px; 
+}
+
+.pad-bottom {
+  padding-bottom: 5px;
+}
 /* ------------------------------------------------------------------------- */
 /* STATS SECTION */
 /* ------------------------------------------------------------------------- */

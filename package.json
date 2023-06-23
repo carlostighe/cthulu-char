@@ -12,20 +12,12 @@
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-<<<<<<< HEAD
-    "web-vitals": "^2.1.4"
-  },
-  "devDependencies": {
-    "react-scripts": "^5.0.1"
-=======
-    "react-scripts": "5.0.1",
     "swiper": "^9.4.1",
     "uikit": "^3.16.22-dev.dc732d6c6",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
     "react-scripts": "5.0.1"
->>>>>>> 8b2d573d1ea3e9d1492626e561ae98fc67047968
   },
   "scripts": {
     "start": "react-scripts start",
