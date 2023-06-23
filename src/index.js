@@ -1,10 +1,16 @@
 import "./index.css";
-import "./skeleton.css";
+import "../node_modules/uikit/dist/css/uikit.min.css";
+import "./App.css";
+import "./fonts/SpecialElite-Regular.ttf";
 
-import App from "./App";
 import React from "react";
 import ReactDOM from "react-dom/client";
+// import function to register Swiper custom elements
+import { register } from "swiper/element/bundle";
 import reportWebVitals from "./reportWebVitals";
+import App from "./App";
+// register Swiper custom elements
+register();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
