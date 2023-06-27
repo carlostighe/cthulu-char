@@ -5,13 +5,18 @@
   /* other formats include: 'woff2', 'truetype, 'opentype',
                             'embedded-opentype', and 'svg' */
 }
+
+input {
+  all: unset;
+}
+
 .App {
   text-align: center;
 }
 
 .app-row {
-      height: calc(100vh / 3);
-    }
+  height: calc(100vh / 3);
+}
 
 .login img {
   padding: 30% 0;
@@ -58,23 +63,16 @@
 
 .stats {
   background-color: antiquewhite;
-  display: flex;
-  flex-direction: column;
+  align-items: center;
+}
+
+.stats-row {
+  flex-direction: row;
   justify-content: stretch;
   align-items: center;
   align-content:stretch;
 }
 
-.stats-row {
-    flex-direction: row;
-      justify-content: stretch;
-  align-items: center;
-  align-content:stretch;
-}
-.stats-val {
-  display: flex;
-  flex-basis: content;
-}
 .stats-item {
   flex-basis: content;
   height: 300px;
@@ -101,7 +99,7 @@
 
 .characteristics-text {
   display: flex;
-    align-items: center;
+  align-items: center;
 }
 
 .characteristics > div {
@@ -126,4 +124,12 @@
 
 .little-pad {
   padding: 5px;
+}
+
+input.uk-form-width-xsmall {
+  width: 40px;
+}
+
+.border-none {
+  border: none
 }

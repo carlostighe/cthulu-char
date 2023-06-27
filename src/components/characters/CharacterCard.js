@@ -2,8 +2,16 @@ import CharacterCharacteristics from "./CharacterCharacteristics";
 import Stats from "./Stats";
 import background from "../../images/cthulu_background_charactersheet.png";
 import image from "../../images/cthulu-image_200.png";
+import { useState } from "react";
 
 const CharacterCard = ({ characterData }) => {
+  const [luck, setLuck] = useState(characterData.luck);
+  const [currentHP, setCurrentHP] = useState(characterData.currentHP);
+  const [currentMP, setCurrentMP] = useState(characterData.currentMP);
+  const [currentSanity, setCurrentSanity] = useState(
+    characterData.currentSanity
+  );
+
   return (
     <div
       className="uk-card uk-card-default uk-width-1-1 uk-height-viewport"
@@ -34,11 +42,17 @@ const CharacterCard = ({ characterData }) => {
           }}
         >
           <div className="uk-flex uk-flex-column uk-width-1-3">
-            <Stats name="Luck" statMax={99} statCurrent={characterData.luck} />
+            <Stats
+              name="Luck"
+              statMax={99}
+              statCurrent={luck}
+              updateStat={setLuck}
+            />
             <Stats
               name="HP's"
               statMax={characterData.hp}
-              statCurrent={characterData.currentHP}
+              statCurrent={currentHP}
+              updateStat={setCurrentHP}
             />
           </div>
           <div className="uk-flex uk-flex-column uk-width-1-3"></div>
@@ -46,12 +60,14 @@ const CharacterCard = ({ characterData }) => {
             <Stats
               name="Sanity"
               statMax={characterData.sanity}
-              statCurrent={characterData.currentSanity}
+              statCurrent={currentSanity}
+              updateStat={setCurrentSanity}
             />
             <Stats
               name="MP's"
               statMax={characterData.mp}
-              statCurrent={characterData.currentMP}
+              statCurrent={currentMP}
+              updateStat={setCurrentMP}
             />
           </div>
         </div>

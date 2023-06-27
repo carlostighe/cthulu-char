@@ -1,31 +1,30 @@
 import CharacterSkill from "./CharacterSkill";
-import background from "../../images/cthulu_background_charactersheet.png";
+import CombatItem from "./CombatItem";
 
 const CharacterSkills = ({ characterData }) => {
   return (
-    <div
-      className="uk-card uk-card-default uk-width-1-1 uk-height-viewport"
-      style={{
-        backgroundImage: `url(${background})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <div className="uk-card uk-card-default uk-width-1-1 uk-height-viewport">
       <div className="uk-card-header">
-        <div className="uk-grid-small uk-flex-middle uk-grid">
+        <div className="uk-flex uk-flex-middle uk-flex-row">
           <div className="uk-width-expand">
             <h3 className="uk-card-title uk-margin-remove-bottom uk-text-center">
               COMBAT
             </h3>
-            <p className="uk-text-meta uk-margin-remove-top uk-text-center">
-              {characterData.occupation} - {characterData.archetype}
-            </p>
+          </div>
+        </div>
+        <div className="uk-flex uk-flex-middle uk-flex-center uk-flex-wrap-stretch uk-flex-row">
+          <div className="uk-flex side-pad uk-flex-row uk-flex-expand">
+            <CombatItem
+              name="Damage Bonus"
+              val={characterData.characteristics}
+            />
+            <CombatItem name="Build" val={characterData.characteristics} />
+            <CombatItem name="Dodge" val={characterData.characteristics.dex} />
           </div>
         </div>
       </div>
-      <div className="uk-card-body little-pad">
-        <div className="uk-flex uk-flex-middle uk-flex-wrap">
+      <div className="uk-card-body little-pad ">
+        <div className="uk-container uk-flex uk-flex-middle uk-flex-wrap">
           {characterData.skills ? (
             characterData.skills.map((skill, index) => (
               <CharacterSkill
