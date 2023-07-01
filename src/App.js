@@ -13,15 +13,6 @@ function App() {
   const [fileId, setFIleId] = useState("");
   const [characterData, setCharacterData] = useState("");
   const [error, setError] = useState(null);
-  const [showDriveField, setShowDriveField] = useState(false)
-  const showField = (e) => {
-    return (e === "default") ? setShowDriveField(false) : setShowDriveField(true);
-  }
-
-  const authorise = () => {
-    console.log("authorse")
-  }
-
 
   const handleLogin = () => {
     setCharacterData(characterDataJson);

@@ -1,7 +1,16 @@
+import React, { useState } from "react";
 import CharacterSkill from "./CharacterSkill";
 import CombatItem from "./CombatItem";
+import CharacterSkillFilter from "./CharacterSkillFilter";
+
 
 const CharacterSkills = ({ characterData }) => {
+  const [filterText, setFilterText] = useState('');
+  const handleBlur = (val) => {
+    setFilterText(val);
+    console.log(val)
+  }
+
   return (
     <div className="uk-card uk-card-default uk-width-1-1 uk-height-viewport">
       <div className="uk-card-header">
@@ -23,20 +32,21 @@ const CharacterSkills = ({ characterData }) => {
           </div>
         </div>
       </div>
+      <CharacterSkillFilter handleBlur={handleBlur} />
       <div className="uk-card-body little-pad ">
         <div className="uk-container uk-flex uk-flex-middle uk-flex-wrap">
           {characterData.skills ? (
-            characterData.skills.map((skill, index) => (
-              <CharacterSkill
-                key={index}
-                index={index}
-                name={skill.name}
-                val={skill.value}
-                ticked={skill.ticked}
-              />
-            ))
+              characterData.skills.filter(skill => skill.name.includes(filterText)).map((skill, index) => (
+                <CharacterSkill
+                  key={index}
+                  index={index}
+                  name={skill.name}
+                  val={skill.value}
+                  ticked={skill.ticked}
+                />
+              ))
           ) : (
-            <h1>loading...</h1>
+          <h1>loading...</h1>
           )}
         </div>
       </div>

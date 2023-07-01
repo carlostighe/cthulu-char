@@ -2,12 +2,18 @@ import { useState } from "react";
 
 const CharacterSkill = ({ name, val, ticked, index }) => {
   const [value, setValue] = useState(val);
-  const hard = Math.floor(value / 2);
-  const extreme = Math.floor(value / 4);
+  const [tick, setTick] = useState(ticked);
+
+  const updateTicked = () => {
+    console.log('clicked')
+    setTick(!tick)
+  }
   return (
-    <div className="uk-flex uk-width-1-3 little-pad uk-flex-column uk-flex-between">
-      <div className="uk-flex uk-flex-row uk-flex-middle uk-flex-center uk-flex-between characteristic-pad .pad-bottom">
-        <div className="uk-flex uk-flex-middle uk-flex-center uk-width-1-1 uk-text-tiny">
+    <div className={"uk-flex uk-width-1-3 little-pad uk-flex-column uk-flex-between " + (tick ? 'border' : '')}>
+      <div className="uk-flex uk-flex-row uk-flex-middle uk-flex-center uk-flex-between characteristic-pad pad-bottom">
+        <div
+          className="uk-flex uk-flex-middle uk-flex-center uk-width-1-1 uk-text-tiny"
+          onClick={updateTicked}>
           {name}
         </div>
         <div className="uk-flex uk-flex-center uk-width-1-2">
@@ -21,7 +27,7 @@ const CharacterSkill = ({ name, val, ticked, index }) => {
       </div>
       <div className="uk-flex uk-flex-row border">
         <div className="uk-text-tiny">
-          {hard} / {extreme}
+          {Math.floor(value / 2)} / {Math.floor(value / 5)}
         </div>
       </div>
     </div>

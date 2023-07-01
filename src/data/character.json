@@ -25,8 +25,8 @@
     "move rate": 9
   },
   "skills": [
-    { "name": "accounting", "value": 5, "ticked": false },
-    { "name": "appraise", "value": 5, "ticked": false },
+    { "name": "accounting", "value": 5, "ticked": true },
+    { "name": "appraise", "value": 5, "ticked": true },
     { "name": "archeology", "value": 5, "ticked": false },
     { "name": "art/craft", "value": 5, "ticked": false },
     { "name": "animal handling", "value": 5, "ticked": false },
