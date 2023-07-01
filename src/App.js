@@ -2,19 +2,28 @@ import React, { useEffect, useState } from "react";
 
 import CharacterSheet from "./components/characters/CharacterSheet";
 import characterDataJson from "./data/character.json";
-import {ReactComponent as CthuluLogo} from './login2.svg';
 import Login from "./components/Login";
+import Logo from "./components/Logo";
 
 
 function App() {
   const [rotation, setRotation] = useState(0);
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(true);
   const [accessToken, setAccessToken] = useState(null);
   const [fileId, setFIleId] = useState("");
   const [characterData, setCharacterData] = useState("");
   const [error, setError] = useState(null);
+  const [showDriveField, setShowDriveField] = useState(false)
+  const showField = (e) => {
+    return (e === "default") ? setShowDriveField(false) : setShowDriveField(true);
+  }
 
   const authorise = () => {
+    console.log("authorse")
+  }
+
+
+  const handleLogin = () => {
     setCharacterData(characterDataJson);
     setAccessToken(true);
   };
@@ -23,7 +32,7 @@ function App() {
     setLogin(!login);
   }
 
-  const handleClick =() => {
+  const handleLogo = () => {
     setRotation(rotation + 360)
     setTimeout(() => showLogin(), 1000);
   }
@@ -32,15 +41,12 @@ function App() {
     <div className="uk-height-viewport">
       {!accessToken ? (
         <div className="uk-height-match uk-position-center">
-          <CthuluLogo 
-            style={{ 
-              transition: 'transform 1s',
-              transform: `rotate(${rotation}deg)` }}
-            onClick={handleClick}          
-          />
-          {login ? (
-             <Login onSubmit={authorise}/> 
-          ): (null)}
+          <div className="uk-card uk-card-secondary uk-width-1-2@m">
+            <Logo onClick={handleLogo} rotation={rotation}/>
+            {login ? (
+              <Login onSubmit={handleLogin} />
+            ) : (null)}
+          </div>
         </div>
       ) : (
         <div className="uk-height-viewport">

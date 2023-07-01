@@ -43,7 +43,7 @@ input {
 
 .border {
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid #222;
   border-radius: 4px;
   justify-content: center;
 }
